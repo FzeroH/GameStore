@@ -1,18 +1,18 @@
 <template>
   <div>
     <HeaderUnAuth/>
-    <ListGames class="list-game"/>
+    <GamesList class="list-game"/>
   </div>
 </template>
 
 <script>
 import HeaderUnAuth from "./headers/HeaderUnAuth";
-import ListGames from "./ListGames";
+import GamesList from "./GamesList";
 
 export default {
   name: 'MainPage',
   components: {
-    ListGames,
+    GamesList,
     HeaderUnAuth},
 }
 </script>
