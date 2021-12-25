@@ -1,86 +1,125 @@
 <template>
-  <div class="auth">
-    <h2>Авторизация</h2>
-    <input type="email" class="email" placeholder="Логин"/>
-    <input type="password" class="password" placeholder="Пароль"/>
+  <form class="auth" @submit.prevent="onSubmit">
+    <h2>Вход</h2>
+    <span class="s-login">Логин</span>
+    <input type="email" v-model="login" class="email"/>
+    <span class="s-password">Пароль</span>
+    <input type="password" v-model="password" class="password"/>
     <div class="log-in">
       <button type="submit">Войти</button>
-      <router-link to="/developer_registration" class="registration">Создать аккаунт</router-link>
+      <!--<router-link to="/developer_registration" class="registration">Создать аккаунт</router-link>-->
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
 export default {
-  name: "AuthorizationDeveloper"
+  name: "AuthorizationDeveloper",
+  data() {
+    return {
+      login:'',
+      password:'',
+    }
+  },
+  methods:{
+    async onSubmit(){
+      let passwordReg = new RegExp("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\w+$)(?=\\S+$).{6,}$");
+      if(!passwordReg.test(this.password)){
+        alert(`Не правильный формат пароля!\nПроверьте пароль: ${this.password}`)
+      }else {
+        console.log(`Login: ${this.login}\nPassword: ${this.password}\nКоличество символов: ${this.password.length}`)
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
-  .auth{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 9em;
-  }
 
-  a{
-    text-decoration: none;
-    color: black;
-    margin-left: 20px;
-    font-size: 15px;
-  }
+h2{
+  width: 107px;
+  height: 48px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 48px;
+  color: #ECEFF4;
+}
 
-  input{
-    width: 25em;
-    height: 1.5em;
-    border-radius: 5px;
-    border: 1px solid gray;
-    padding: 0 10px 0 10px;
-    font-size: 18px;
-    transition: 200ms ease;
-    outline: none;
-  }
+.auth{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9em;
+  background: linear-gradient(90deg, #2F343F 0%, #1C2029 100%);
+}
+a{
+  text-decoration: none;
+  color: black;
+  margin-left: 20px;
+  font-size: 15px;
+}
 
-  input:focus{
-    transition: 200ms ease;
-    border-color: dodgerblue;
-  }
+input{
+  width: 25em;
+  height: 1.5em;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0 10px 0 10px;
+  font-size: 18px;
+  outline: none;
+}
 
-  button{
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid dodgerblue;
-    padding: 5px 20px 5px 20px;
-    transition: 200ms ease;
-    color: black;
-    font-size: 15px;
-  }
+span{
+  padding-right: 250px;
+  width: 114px;
+  height: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #97989A;
+}
+.s-password{
+  margin-top: 30px;
+}
 
-  button:hover{
-    transition: 200ms ease;
-    color: white;
-    background-color: dodgerblue;
-    border: 1px solid white;
-    cursor: pointer;
-  }
+button{
+  width: 260px;
+  height: 50px;
+  background: linear-gradient(90deg, #2F343F 0%, #1C2029 100%);
+  border-radius: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  color: white;
+}
+.email{
+  width: 350px;
+  height: 50px;
+  background: #F0F0F0;
+  border-radius: 10px;
+}
 
-  .email{
-    margin-top: 1.5em;
-  }
+.password{
+  width: 350px;
+  height: 50px;
+  background: #F0F0F0;
+  border-radius: 10px;
+}
 
-  .password{
-    margin-top: 1.5em;
-  }
+.log-in{
+  margin-top: 20px;
+}
 
-  .log-in{
-    margin-top: 20px;
-  }
-
-  .registration{
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-  }
+.registration{
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
 </style>

@@ -57,7 +57,7 @@ export default {
   }
 
   .modal-title {
-    color: #0971c7;
+    color: black;
     margin: 0 0 20px 0;
   }
 
@@ -71,7 +71,7 @@ export default {
   .router{
     text-decoration: none;
     font-size: 18px;
-    color: #0971c7;
+    color: black;
     border-radius: 10px;
     padding: 5px 5px 5px 5px;
     transition: 200ms ease;
@@ -80,7 +80,7 @@ export default {
   .router:hover{
     transition: 200ms ease;
     color: white;
-    background-color: #0971c7;
+    background-color: black;
 
   }
 
@@ -89,7 +89,7 @@ export default {
   }
 
   button {
-    background-color: #0971c7;
+    background-color: black;
     color: #fff;
     border: none;
     text-align: center;

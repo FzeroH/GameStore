@@ -7,7 +7,9 @@
      <option selected disabled hidden>Каталог</option>
    </select>
    <input type="text" placeholder="Поиск">
-   <img src="https://pic.onlinewebfonts.com/svg/img_212716.png" class="profile" alt="profile"/>
+   <router-link to="/user/:id" class="profile">
+     <img src="https://pic.onlinewebfonts.com/svg/img_212716.png" class="profile-img" alt="profile"/>
+   </router-link>
  </div>
 </template>
 
@@ -38,10 +40,13 @@ export default {
 
   .profile{
     order:4;
+  }
+  .profile-img{
     border: 1px solid #b7b7b7;
     border-radius: 50%;
     height: 40px;
     width: 40px;
+
   }
 
   input{
