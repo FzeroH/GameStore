@@ -3,8 +3,20 @@
     <div class="modal">
         <h2 class="modal-title">Войти как</h2>
         <div class="modal-content">
-          <router-link :to="{name: 'Auth', query: {type: 'user'}}" class="router">Пользователь</router-link>
-          <router-link :to="{name: 'Auth', query: {type: 'developer'}}" class="router">Разработчик</router-link>
+          <router-link
+              :to="{name: 'Auth', query: {type: 'user'}}"
+              @click="closeModal"
+              class="router"
+          >
+            Пользователь
+          </router-link>
+          <router-link
+              :to="{name: 'Auth', query: {type: 'developer'}}"
+              @click="closeModal"
+              class="router"
+          >
+            Разработчик
+          </router-link>
         </div>
         <div class="modal-footer">
           <button class="modal-footer__button" @click="closeModal">
