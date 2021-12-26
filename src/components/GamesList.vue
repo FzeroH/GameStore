@@ -19,6 +19,7 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import { useRouter } from "vue-router";
 import GameItem from "./templates/GameItem";
 
 export default defineComponent({
@@ -28,6 +29,7 @@ export default defineComponent({
   },
 
   setup() {
+    const router = useRouter();
     const currentSlideIndex = ref(0);
     const array = ref([
       {
@@ -51,13 +53,12 @@ export default defineComponent({
     ]);
 
     const changeSlide = (index) => {
-      console.log(index)
       if (index < currentSlideIndex.value) {
         prevSlide();
       } else if (index > currentSlideIndex.value) {
         nextSlide();
       } else {
-        console.log('Go to game')
+        router.push({ name: 'Game', query: { id: index } });
       }
     };
 

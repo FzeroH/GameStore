@@ -28,42 +28,42 @@ export default defineComponent({
   name: "Registration",
 
   setup() {
-    const email = ref('')
-    const password = ref('')
-    const repeatPassword = ref('')
+    const email = ref('');
+    const password = ref('');
+    const repeatPassword = ref('');
 
     return{
       email,
       password,
-      repeatPassword
-    }
+      repeatPassword,
+    };
   },
 });
 </script>
 
 <style scoped>
-.registration-container{
+.registration-container {
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.registration-container > h2{
+.registration-container > h2 {
   font-size: 40px;
   font-weight: bold;
   color: #ECEFF4;
 }
-.registration-container > label{
+.registration-container > label {
   width: 30%;
   display: flex;
   flex-direction: column;
   color: #97989A;
   font-size: 16px;
 }
-.registration-container >label:not(:first-child){
+.registration-container > label:not(:first-child) {
   margin-top: 25px;
 }
-.registration-container > label > input{
+.registration-container > label > input {
   width: 100%;
   height: 50px;
   border-radius: 10px;
@@ -79,7 +79,7 @@ export default defineComponent({
   letter-spacing: -0.075em;
   max-width: 348px;
 }
-.registration-container > button{
+.registration-container > button {
   width: 20%;
   height: 50px;
   margin-top: 30px;

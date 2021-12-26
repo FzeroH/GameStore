@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show" class="modal-shadow" @click.self="closeModal">
+  <div v-if="show" class="modal-overlay" @click.self="closeModal">
     <div class="modal">
         <h2 class="modal-title">Отклонение</h2>
         <div class="modal-content">
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style scoped>
-  .modal-shadow {
+  .modal-overlay {
     position: absolute;
     top: 0;
     left: 0;

@@ -27,30 +27,30 @@ export default {
 </script>
 
 <style scoped>
-.game-page-wrapper{
+.game-page-wrapper {
   width: 100%;
   display: flex;
 }
-.game-page-container{
+.game-page-container {
   display:flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 30px 122px;
 }
-.game-page-container__info{
+.game-page-container__info {
   width: 30%;
 }
-.game-page-container__info > h1,h2,p{
-  color:#ECEFF4;
+.game-page-container__info > h1, h2, p {
+  color: #ECEFF4;
 }
-.game-page-container__info > h1{
+.game-page-container__info > h1 {
   font-size: 40px;
   font-weight: bold;
 }
-.game-page-container__info > p{
+.game-page-container__info > p {
   opacity: 0.6;
 }
-.game-page-container__info > button{
+.game-page-container__info > button {
   width: 70%;
   height: 50px;
   margin-top: 30px;
@@ -61,10 +61,9 @@ export default {
   font-weight: 600;
   background: linear-gradient(90deg, #2F343F 0%, #1C2029 100%);
 }
-.game-page__image{
+.game-page__image {
   width: 60%;
   height: 100%;
-  opacity: 0.5;
   border-radius: 10px;
   background: center no-repeat;
   background-size: cover;

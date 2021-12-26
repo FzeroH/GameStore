@@ -1,19 +1,19 @@
 <template>
-  <div v-if="show" class="modal-shadow" @click.self="closeModal">
+  <div v-if="show" class="modal-overlay" @click.self="closeModal">
     <div class="modal">
         <h2 class="modal-title">Войти как</h2>
         <div class="modal-content">
           <router-link
               :to="{name: 'Auth', query: {type: 'user'}}"
               @click="closeModal"
-              class="router"
+              class="modal-link"
           >
             Пользователь
           </router-link>
           <router-link
               :to="{name: 'Auth', query: {type: 'developer'}}"
               @click="closeModal"
-              class="router"
+              class="modal-link"
           >
             Разработчик
           </router-link>
@@ -50,78 +50,75 @@ export default defineComponent({
 </script>
 
 <style scoped>
-  .modal-shadow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.39);
-  }
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  min-height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.39);
+}
 
-  .modal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #fff;
-    border-radius: 8px;
-    padding: 15px;
-    min-width: 220px;
-    max-width: 280px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1C2029;
+  border-radius: 10px;
+  padding: 15px;
+  min-width: 220px;
+  max-width: 280px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  .modal-title {
-    color: black;
-    margin: 0 0 20px 0;
-  }
+.modal-title {
+  color: #ECEFF4;
+  margin: 0 0 20px 0;
+}
 
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    color: black;
-  }
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 80%;
+  color: black;
+  box-sizing: content-box;
+}
 
-  .router{
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    border-radius: 10px;
-    padding: 5px 5px 5px 5px;
-    transition: 200ms ease;
-  }
+.modal-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-  .router:hover{
-    transition: 200ms ease;
-    color: white;
-    background-color: black;
+.modal-footer__button {
+  width: 70%;
+  height: 50px;
+  margin-top: 30px;
+  border: transparent;
+  border-radius: 20px;
+  color: #ECEFF4;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: linear-gradient(90deg, #2F343F 0%, #262a33 100%);
+}
 
-  }
-
-  .router:not(:first-child){
-    margin-top: 10px;
-  }
-
-  button {
-    background-color: black;
-    color: #fff;
-    border: none;
-    text-align: center;
-    padding: 8px;
-    font-size: 17px;
-    font-weight: 500;
-    border-radius: 8px;
-    min-width: 80px;
-  }
-
-  button:hover{
-    transition: 200ms ease;
-    box-shadow: 1px 2px 5px #5e5e5e;
-    cursor: pointer;
-  }
-
+.modal-link {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #2C313D;
+  color: #ECEFF4;
+  font-weight: 300;
+  text-decoration: none;
+  box-sizing: border-box;
+}
 </style>

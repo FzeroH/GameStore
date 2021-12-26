@@ -52,6 +52,7 @@ const routes = [
 
     {
         path:'/game',
+        name: 'Game',
         component: GamePage
     },
 

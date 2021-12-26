@@ -1,14 +1,14 @@
 <template>
   <auth-window @close="toggleShowModal" :show="showModal"/>
 
-  <Header @toggle="toggleShowModal" :is-show-login="showLoginButton" />
+  <Header @toggle="toggleShowModal" @toRegister="toRegister" :is-show-login="showLoginButton" />
   <SubHeader :is-show-search="showSearch" />
   <router-view/>
 </template>
 
 <script>
 import { defineComponent, computed, ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import Header from "./components/ui/Header";
 import SubHeader from "./components/ui/SubHeader";
 import AuthWindow from "./components/modal_windows/AuthWindow";
@@ -22,10 +22,13 @@ export default defineComponent({
   },
 
   setup() {
+    const router = useRouter();
     const route = useRoute();
     const showModal = ref(false);
 
     const toggleShowModal = () => showModal.value = !showModal.value;
+
+    const currentType = computed(() => route.query.type);
 
     const showSearch = computed(() => {
       return route.path === '/';
@@ -35,11 +38,14 @@ export default defineComponent({
       return route.path !== '/auth';
     });
 
+    const toRegister = () => router.push({ name: "Register", query: { type: currentType.value } });
+
     return {
       showSearch,
       showModal,
       showLoginButton,
       toggleShowModal,
+      toRegister,
     }
   },
 });

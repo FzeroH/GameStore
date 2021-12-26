@@ -1,9 +1,9 @@
 <template>
-  <form class="auth-container">
+  <form class="auth-container" @submit.prevent="handleSignIn">
     <h2>Вход</h2>
     <label>
       Имя аккаунта
-      <input type="email" v-model="email" />
+      <input type="text" v-model="email" />
     </label>
     <label>
       Пароль
@@ -15,6 +15,7 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import UserService from "../../api/UserService";
 
 export default defineComponent({
   name: "Authorization",
@@ -23,9 +24,16 @@ export default defineComponent({
     const email = ref('');
     const password = ref('');
 
+    const handleSignIn = async () => {
+      await UserService.login({login: email.value, password: password.value})
+          .then(data => localStorage.setItem('token', data.token))
+          .catch(error => console.log(error));
+    };
+
     return {
       email,
       password,
+      handleSignIn,
     };
   },
 });
