@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ItemListGames from "../../templates/ItemListGames";
+import ItemListGames from "../../templates/GameItem";
 export default {
   name: "Library",
   components: {ItemListGames}

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderAuth/>
     <div class="user-profile">
       <ul>
         <router-link to="/user/:id">Профиль</router-link>
@@ -14,12 +13,8 @@
 </template>
 
 <script>
-import HeaderAuth from "../../headers/HeaderAuth";
 export default {
   name: "UserProfile",
-  components:{
-    HeaderAuth,
-  },
 }
 </script>
 

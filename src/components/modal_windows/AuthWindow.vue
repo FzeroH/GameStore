@@ -3,8 +3,8 @@
     <div class="modal">
         <h2 class="modal-title">Войти как</h2>
         <div class="modal-content">
-          <router-link to="/user_auth" class="router">Пользователь</router-link>
-          <router-link to="/developer_auth" class="router">Разработчик</router-link>
+          <router-link :to="{name: 'Auth', query: {type: 'user'}}" class="router">Пользователь</router-link>
+          <router-link :to="{name: 'Auth', query: {type: 'developer'}}" class="router">Разработчик</router-link>
         </div>
         <div class="modal-footer">
           <button class="modal-footer__button" @click="closeModal">
@@ -16,19 +16,25 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "AuthWindow",
-  data: function () {
-    return {
-      show: false
+  props: {
+    show: {
+      type: Boolean,
+      default: false,
     }
   },
-  methods: {
-    closeModal: function () {
-      this.show = false
-    }
-  }
-}
+
+  setup(props, { emit }) {
+    const closeModal = () => emit('close');
+
+    return {
+      closeModal,
+    };
+  },
+});
 </script>
 
 <style scoped>

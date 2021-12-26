@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderAuth/>
     <div class="page">
       <div class="page-top">
         <div class="page-text">
@@ -39,10 +38,8 @@
 </template>
 
 <script>
-import HeaderAuth from "../headers/HeaderAuth";
 export default {
   name: "GamePage",
-  components: {HeaderAuth}
 }
 </script>
 

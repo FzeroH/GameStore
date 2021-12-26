@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderAuthModer/>
     <DeviationWindow ref="deviation_modal"/>
     <div class="page">
       <div class="page-top">
@@ -43,11 +42,11 @@
 </template>
 
 <script>
-import HeaderAuthModer from "../headers/HeaderAuthModer";
 import DeviationWindow from "../modal_windows/DeviationWindow";
+
 export default {
   name: "ModeratorGamePage",
-  components: {HeaderAuthModer, DeviationWindow},
+  components: {DeviationWindow},
   methods: {
     showModalDeviation: function(){
       return this.$refs.deviation_modal.show=true

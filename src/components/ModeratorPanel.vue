@@ -1,20 +1,17 @@
 <template>
-  <div>
-    <HeaderAuthModer/>
-    <ItemListGames/>
-    <ItemListGames/>
-    <ItemListGames/>
-  </div>
+  <ItemListGames/>
+  <ItemListGames/>
+  <ItemListGames/>
 </template>
 
 <script>
-import HeaderAuthModer from "./headers/HeaderAuthModer";
-import ItemListGames from "./templates/ItemListGames";
+import ItemListGames from "./templates/GameItem";
 
 export default {
   name: "ModeratorPanel",
-  components:{ItemListGames, HeaderAuthModer},
-
+  components:{
+    ItemListGames
+  },
 }
 </script>
 

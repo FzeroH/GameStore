@@ -1,8 +1,7 @@
 import {createRouter, createWebHistory} from "vue-router";
 import MainPage from "../components/MainPage";
-import AuthorizationUser from "../components/authorization/AuthorizationUser";
-import AuthorizationDeveloper from "../components/authorization/AuthorizationDeveloper";
-import RegistrationUser from "../components/registration/RegistrationUser";
+import Authorization from "../components/ui/Authorization";
+import Registration from "../components/ui/Registration";
 import RegistrationDeveloper from "../components/registration/RegistrationDeveloper";
 import AuthorizationModer from "../components/authorization/AuthorizationModer";
 import ModeratorPanel from "../components/ModeratorPanel";
@@ -18,25 +17,22 @@ import DPersonalData from "../components/profiles/developer_profile/DPersonalDat
 import DLibrary from "../components/profiles/developer_profile/DLibrary";
 import DAddGame from "../components/profiles/developer_profile/DAddGame";
 
-const routes =[
+const routes = [
     {
         path:'/',
         component: MainPage
     },
 
     {
-        path:'/user_auth',
-        component: AuthorizationUser
+        path: '/auth',
+        name: 'Auth',
+        component: Authorization,
     },
 
     {
-        path:'/developer_auth',
-        component: AuthorizationDeveloper
-    },
-
-    {
-        path:'/user_registration',
-        component: RegistrationUser
+        path:'/registration',
+        name: 'Register',
+        component: Registration
     },
 
     {
